@@ -1,0 +1,26 @@
+name: Supabase keep-alive (katya-health)
+
+# Бесплатный тариф Supabase паузит проект после 7 дней без активности.
+# Этот workflow дважды в неделю (пн и чт) дёргает базу дневника, чтобы она не засыпала.
+# anon-ключ публичный (он и так встроен в сайт, в dnevnik.html) — секрет не нужен.
+
+on:
+  schedule:
+    - cron: "0 7 * * 1,4"   # пн и чт в 07:00 UTC — максимальный разрыв ~4 дня (< 7)
+  workflow_dispatch: {}       # можно запустить вручную из вкладки Actions
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST
+        run: |
+          URL="https://jraxjlxpboefzwrqssvm.supabase.co/rest/v1/diary_entries?select=id&limit=1"
+          KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpyYXhqbHhwYm9lZnp3cnFzc3ZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyNTgzMjUsImV4cCI6MjA5NjgzNDMyNX0.6QeyFm0DZSy6VJDyCLxw8mqLGs5fdXRxybov3ILsz0s"
+          code=$(curl -s -o /dev/null -w "%{http_code}" "$URL" -H "apikey: $KEY" -H "Authorization: Bearer $KEY")
+          echo "Supabase REST responded: HTTP $code"
+          if [ "$code" != "200" ]; then
+            echo "::warning::Keep-alive ping did not return 200 (got $code)"
+            exit 1
+          fi
+          echo "OK — база активна, таймер простоя сброшен."

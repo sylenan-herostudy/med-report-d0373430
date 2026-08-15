@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><title>Дашборд — щитовидная железа</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+ *{box-sizing:border-box;}
+ html,body{margin:0;}
+ body{font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;background:#f4f6f8;color:#1f2733;line-height:1.55;max-width:none;padding:0;}
+ .topbar{background:#1f2733;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,.15);}
+ .navbar{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 14px;}
+ .brand{color:#fff;font-size:14.5px;font-weight:600;padding:12px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+ .burger{background:none;border:1px solid #4a5765;color:#cfe3ff;font-size:14px;padding:7px 13px;border-radius:7px;cursor:pointer;flex-shrink:0;margin-left:12px;}
+ .menu{display:none;}
+ .menu.open{display:block;position:absolute;left:0;right:0;background:#1f2733;border-top:1px solid #33404f;box-shadow:0 8px 18px rgba(0,0,0,.28);}
+ .menu .mwrap{max-width:900px;margin:0 auto;}
+ .menu a{display:block;color:#cfe3ff;text-decoration:none;font-size:14px;padding:11px 18px;border-bottom:1px solid #2a3645;}
+ .menu a:hover{background:#2c3845;color:#fff;}
+ .menu a.active{color:#fff;font-weight:700;border-left:3px solid #4da3ff;}
+ .menu .grp{color:#8a98a8;font-size:11px;text-transform:uppercase;padding:10px 18px 3px;letter-spacing:.4px;}
+ .menu a.ks-lock,.menu .grp.ks-lock{display:none;}
+ .menu.ksauth a.ks-lock{display:block;}
+ .menu.ksauth .grp.ks-lock{display:block;}
+ #ks-login{color:#ffd479;font-weight:600;}
+ .menu.ksauth #ks-login{display:none;}
+ #ks-logout{display:none;color:#ffb3b3;font-weight:600;}
+ .menu.ksauth #ks-logout{display:block;}
+ @media(min-width:780px){
+   .burger{display:none;}
+   .menu{display:block!important;position:static;box-shadow:none;border-top:none;}
+   .menu .mwrap{display:flex;flex-wrap:wrap;align-items:center;}
+   .menu a{border:none;border-bottom:3px solid transparent;padding:12px 10px;font-size:13px;}
+   .menu a.active{border-left:none;border-bottom-color:#4da3ff;}
+   .menu .grp{display:none;}
+   .menu.ksauth .grp.ks-lock{display:none;}
+ }
+ .container{max-width:900px;margin:0 auto;padding:22px 18px 70px;}
+ h1{font-size:24px;border-bottom:2px solid #2b2b2b;padding-bottom:6px;margin:6px 0 14px;}
+ h2{font-size:17px;margin-top:1.4em;border-bottom:1px solid #ddd;padding-bottom:3px;}
+ h3{font-size:14.5px;margin-top:1.1em;}
+ table{border-collapse:collapse;width:100%;margin:.7em 0;font-size:13.5px;background:#fff;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+ th,td{border:1px solid #cfd6dd;padding:6px 9px;text-align:left;vertical-align:top;}
+ th{background:#eef0f2;}
+ code{background:#eceff2;padding:1px 4px;border-radius:3px;}
+ blockquote{border-left:4px solid #ccc;margin:.7em 0;padding:6px 14px;color:#555;background:#fff;}
+ ul,ol{padding-left:1.4em;}
+ a{color:#0a7d3c;}
+ hr{border:none;border-top:1px solid #ddd;margin:1.2em 0;}
+ .sub{color:#6b7785;font-size:14px;margin:2px 0 20px;}
+ .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:22px;}
+ .kpi{background:#fff;border-radius:12px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:5px solid #ccc;}
+ .kpi.red{border-left-color:#e74c3c}.kpi.orange{border-left-color:#e67e22}.kpi.info{border-left-color:#5b7a99}.kpi.green{border-left-color:#27ae60}
+ .kpi .label{font-size:11px;color:#6b7785;text-transform:uppercase;letter-spacing:.3px}
+ .kpi .value{font-size:22px;font-weight:700;margin:5px 0 2px}.kpi .value small{font-size:13px;font-weight:600}
+ .kpi .note{font-size:11.5px;color:#515b68}
+ .card{background:#fff;border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:20px}
+ .card h2{font-size:17px;margin-bottom:6px}
+ .legend{font-size:12px;color:#515b68;margin:2px 0 6px}.legend .sw{display:inline-block;width:22px;height:10px;border-radius:2px;vertical-align:middle;margin-right:5px}
+ .verdict{background:#fff4e5;border:1px solid #f0c89a;border-radius:12px;padding:16px 18px;font-size:14px;line-height:1.55;color:#6b4a1f}
+ .verdict b{color:#8a3b12}
+ .foot{margin-top:16px;font-size:11.5px;color:#8a94a0}
+ svg{width:100%;height:auto;display:block}
+ @media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}}
+</style>
+<script src="ks-lock.js"></script>
+
+</head><body>
+<div class="topbar">
+  <div class="navbar">
+    <span class="brand">🩺 Медкарта</span>
+    <button class="burger" onclick="this.closest('.topbar').querySelector('.menu').classList.toggle('open')">☰ Разделы</button>
+  </div>
+  <nav class="menu"><div class="mwrap">
+    <a href="./">📊 Дашборд</a>
+    <div class="grp">Обследование</div>
+    <a href="istoriya">История болезни</a>
+    <a href="dokumenty">Документы (анализы)</a>
+    <a class="ks-lock" href="analizy">Анализы</a>
+    <a class="ks-lock" href="rasshifrovka">Расшифровка</a>
+    <div class="grp ks-lock">Лечение</div>
+    <a class="ks-lock" href="proverka">Проверка назначений</a>
+    <a class="ks-lock" href="nezavisimyy">Разбор лечения</a>
+    <a class="ks-lock" href="razbor-bad">Разбор БАД</a>
+    <a class="ks-lock" href="lekarstva">Лекарства</a>
+    <a class="ks-lock" href="grafik">График приёма</a>
+    <a class="ks-lock" href="rekomendacii">Рекомендации</a>
+    <div class="grp ks-lock">Записи</div>
+    <a class="ks-lock" href="dnevnik">Дневник</a>
+    <a class="ks-lock" href="voprosy">Вопросы врачам</a>
+    <a class="ks-entry" href="#" id="ks-login" onclick="ksLogin();return false;">🔒 Вход</a>
+    <a class="ks-entry" href="#" id="ks-logout" onclick="try{sessionStorage.removeItem('ks_pw');}catch(e){};location.href='./';return false;">🚪 Выйти</a>
+  </div></nav>
+</div>
+<main class="container">
+<script>
+(function(){
+  var seg=location.pathname.replace(/\/+$/,"").split("/").pop().replace(/\.html$/,"");
+  if(seg==="index")seg="";
+  document.querySelectorAll(".menu a").forEach(function(a){
+    var h=(a.getAttribute("href")||"").replace(/\.html$/,"").replace(/^\.?\//,"").replace(/\/+$/,"");
+    if(h&&h===seg)a.classList.add("active");
+  });
+  function reveal(on){var m=document.querySelector(".menu");if(m)m.classList.toggle("ksauth",!!on);}
+  function check(){
+    var pw=null;try{pw=sessionStorage.getItem("ks_pw");}catch(e){}
+    if(pw&&window.KS&&KS.validate){KS.validate(pw).then(reveal);}else reveal(false);
+  }
+  window.ksLogin=function(){
+    var pw=prompt("Пароль для доступа к разделам лечения:");
+    if(pw==null)return;
+    if(window.KS&&KS.validate){KS.validate(pw).then(function(ok){
+      if(ok){try{sessionStorage.setItem("ks_pw",pw);}catch(e){}reveal(true);}
+      else alert("Неверный пароль");
+    });}else alert("Модуль доступа не загрузился, обновите страницу.");
+  };
+  check();
+})();
+</script>
+
+<h1>Щитовидная железа — динамика</h1><div class="sub">Пациентка, 38 лет · обновлено из базы · лаборатории INVITRO и Хеликс</div><div class="kpis"><div class="kpi red"><div class="label">Старт · 10 мар</div><div class="value">ТТГ 4.48</div><div class="note">тяжёлый гипотиреоз</div></div><div class="kpi green"><div class="label">Лучшая точка · 25 мар</div><div class="value">ТТГ 0.671</div><div class="note">в норме (но был передоз)</div></div><div class="kpi orange"><div class="label">ТТГ сейчас · 11 июн</div><div class="value">6.631 <small>мМЕ/л</small></div><div class="note">норма 0.38–5.33 · цель 0.5–2.5</div></div><div class="kpi orange"><div class="label">Т4 своб. · 11 июн</div><div class="value">8.86 ↓</div><div class="note">норма 7.86–14.41</div></div><div class="kpi info"><div class="label">Антитела</div><div class="value">668.1</div><div class="note">Анти-ТПО — аутоиммунный тиреоидит</div></div></div><div class="card"><h2>ТТГ</h2><div class="legend"><span class="sw" style="background:rgba(46,204,113,.25)"></span>зона нормы (0.38–5.33) &nbsp; <span class="sw" style="background:#e74c3c"></span>ТТГ</div><svg id="g_ttg" viewBox="0 0 960 320"></svg></div><div class="card"><h2>Т4 своб.</h2><div class="legend"><span class="sw" style="background:rgba(46,204,113,.25)"></span>зона нормы (7.86–14.41) &nbsp; <span class="sw" style="background:#2e6fdb"></span>Т4 своб.</div><svg id="g_t4" viewBox="0 0 960 320"></svg></div><div class="card" style="border-left:5px solid #5b7a99"><h2>Состояние со слов пациента · июнь 2026</h2><ul style="margin:4px 0 0 20px;font-size:14px;line-height:1.5;color:#3a4450"><li style="margin-bottom:5px">После еды — резкое ухудшение самочувствия: холодеют руки и ноги (ноги «будто сейчас откажут»), давит в горле, кружится голова вплоть до предобморочного состояния, давление на тазовое дно и на грудную клетку (ощущение заблокированных газов в кишечнике).</li><li style="margin-bottom:5px">Переносит почти только овсянку и куриный бульон. Даже более лёгкая еда (пюре из индейки, печёное яблоко) резко усиливает симптомы.</li><li style="margin-bottom:5px">От воды и жидкости — те же симптомы, но слабее. Раньше выпивала утром 2 чашки воды, сейчас с трудом полчашки — и уже холодеют руки, кружится голова.</li><li style="margin-bottom:5px">Запор около 1–1,5 месяцев: стул только от слабительных или клизм. Клизму сделать трудно — вода «стоит как воздушная пробка», ввести получается только шприцовкой.</li><li style="margin-bottom:5px">Похудела примерно на 11 кг за пару месяцев — при этом аппетит очень сильный.</li><li style="margin-bottom:5px">Живот: не может «надуть» живот, нет свободного дыхания животом. При надавливании — боль ниже пупка и слева (вдоль живота, ближе к области поджелудочной).</li><li style="margin-bottom:5px">Врач по щитовидке предполагает воспалительный процесс в тонком кишечнике. УЗИ кишечника явных отклонений не показывает; на УЗИ брюшной полости врач отметила в тонком кишечнике неподвижные каловые массы и порекомендовала сдать онкомаркеры (какие именно — не уточнила).</li><li style="margin-bottom:5px">Принимает ферменты, Метеоспазмил, Хофитол. Камень в желчном пузыре более 2 см — есть больше 10 лет, ранее не беспокоил.</li></ul><div style="font-size:11.5px;color:#8a94a0;margin-top:8px">Записано со слов пациента — субъективные жалобы, не диагноз.</div></div><div class="foot">Информационно; решения принимает врач.</div><script>
+function chart(id,data,yMin,yMax,ticks,normLow,normHigh,color){
+ var svg=document.getElementById(id),NS="http://www.w3.org/2000/svg";
+ var x0=60,x1=930,y0=20,y1=270,pw=x1-x0,ph=y1-y0,n=data.length;
+ function yP(v){return y1-(v-yMin)/(yMax-yMin)*ph}
+ function xP(i){return x0+(n===1?pw/2:i/(n-1)*pw)}
+ function add(t,a,txt){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;svg.appendChild(e);return e}
+ add("rect",{x:x0,y:yP(normHigh),width:pw,height:yP(normLow)-yP(normHigh),fill:"rgba(46,204,113,.20)"});
+ add("line",{x1:x0,y1:yP(normHigh),x2:x1,y2:yP(normHigh),stroke:"#27ae60","stroke-width":1,"stroke-dasharray":"4 3"});
+ add("line",{x1:x0,y1:yP(normLow),x2:x1,y2:yP(normLow),stroke:"#27ae60","stroke-width":1,"stroke-dasharray":"4 3"});
+ ticks.forEach(function(t){add("line",{x1:x0,y1:yP(t),x2:x1,y2:yP(t),stroke:"#eef1f4","stroke-width":1});add("text",{x:x0-10,y:yP(t)+4,"text-anchor":"end","font-size":12,fill:"#8a94a0"},t)});
+ add("line",{x1:x0,y1:y0,x2:x0,y2:y1,stroke:"#cfd6dd","stroke-width":1.5});
+ add("line",{x1:x0,y1:y1,x2:x1,y2:y1,stroke:"#cfd6dd","stroke-width":1.5});
+ add("polyline",{points:data.map(function(d,i){return xP(i)+","+yP(d.v)}).join(" "),fill:"none",stroke:color,"stroke-width":3,"stroke-linejoin":"round"});
+ data.forEach(function(d,i){add("circle",{cx:xP(i),cy:yP(d.v),r:5.5,fill:color,stroke:"#fff","stroke-width":2});add("text",{x:xP(i),y:yP(d.v)-12,"text-anchor":"middle","font-size":13,"font-weight":700,fill:color},d.v);add("text",{x:xP(i),y:y1+20,"text-anchor":"middle","font-size":12.5,fill:"#515b68"},d.d)});
+}
+
+chart("g_ttg",[{d:"25 мар",v:0.671},{d:"20 апр",v:14.943},{d:"9 мая",v:19.553},{d:"15 мая",v:6.412},{d:"19 мая",v:6.844},{d:"27 мая",v:8.175},{d:"31 мая",v:7.019},{d:"5 июн",v:5.559},{d:"11 июн",v:6.631}],0,22,[0, 5, 10, 15, 20],0.38,5.33,"#e74c3c");
+chart("g_t4",[{d:"20 апр",v:10.58},{d:"9 мая",v:11.56},{d:"15 мая",v:11.7},{d:"19 мая",v:11.59},{d:"27 мая",v:8.62},{d:"5 июн",v:9.28},{d:"11 июн",v:8.86}],6,16,[6, 8, 10, 12, 14, 16],7.86,14.41,"#2e6fdb");</script>
+</main>
+
+</body></html>

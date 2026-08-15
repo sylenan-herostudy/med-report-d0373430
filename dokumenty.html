@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Документы — бланки</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+   *{box-sizing:border-box;}
+   html,body{margin:0;}
+   body{font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;background:#f4f6f8;color:#1f2733;line-height:1.55;max-width:none;padding:0;}
+   .topbar{background:#1f2733;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,.15);}
+   .navbar{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 14px;}
+   .brand{color:#fff;font-size:14.5px;font-weight:600;padding:12px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+   .burger{background:none;border:1px solid #4a5765;color:#cfe3ff;font-size:14px;padding:7px 13px;border-radius:7px;cursor:pointer;flex-shrink:0;margin-left:12px;}
+   .menu{display:none;}
+   .menu.open{display:block;position:absolute;left:0;right:0;background:#1f2733;border-top:1px solid #33404f;box-shadow:0 8px 18px rgba(0,0,0,.28);}
+   .menu .mwrap{max-width:900px;margin:0 auto;}
+   .menu a{display:block;color:#cfe3ff;text-decoration:none;font-size:14px;padding:11px 18px;border-bottom:1px solid #2a3645;}
+   .menu a:hover{background:#2c3845;color:#fff;}
+   .menu a.active{color:#fff;font-weight:700;border-left:3px solid #4da3ff;}
+   .menu .grp{color:#8a98a8;font-size:11px;text-transform:uppercase;padding:10px 18px 3px;letter-spacing:.4px;}
+   .menu a.ks-lock,.menu .grp.ks-lock{display:none;}
+   .menu.ksauth a.ks-lock{display:block;}
+   .menu.ksauth .grp.ks-lock{display:block;}
+   #ks-login{color:#ffd479;font-weight:600;}
+   .menu.ksauth #ks-login{display:none;}
+   #ks-logout{display:none;color:#ffb3b3;font-weight:600;}
+   .menu.ksauth #ks-logout{display:block;}
+   @media(min-width:780px){
+     .burger{display:none;}
+     .menu{display:block!important;position:static;box-shadow:none;border-top:none;}
+     .menu .mwrap{display:flex;flex-wrap:wrap;align-items:center;}
+     .menu a{border:none;border-bottom:3px solid transparent;padding:12px 10px;font-size:13px;}
+     .menu a.active{border-left:none;border-bottom-color:#4da3ff;}
+     .menu .grp{display:none;}
+     .menu.ksauth .grp.ks-lock{display:none;}
+   }
+   .container{max-width:900px;margin:0 auto;padding:22px 18px 70px;}
+   h1{font-size:24px;border-bottom:2px solid #2b2b2b;padding-bottom:6px;margin:6px 0 14px;}
+   h2{font-size:17px;margin-top:1.4em;border-bottom:1px solid #ddd;padding-bottom:3px;}
+   h3{font-size:14.5px;margin-top:1.1em;}
+   table{border-collapse:collapse;width:100%;margin:.7em 0;font-size:13.5px;background:#fff;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+   th,td{border:1px solid #cfd6dd;padding:6px 9px;text-align:left;vertical-align:top;}
+   th{background:#eef0f2;}
+   code{background:#eceff2;padding:1px 4px;border-radius:3px;}
+   blockquote{border-left:4px solid #ccc;margin:.7em 0;padding:6px 14px;color:#555;background:#fff;}
+   ul,ol{padding-left:1.4em;}
+   a{color:#0a7d3c;}
+   hr{border:none;border-top:1px solid #ddd;margin:1.2em 0;}
+   .sub{color:#6b7785;font-size:14px;margin:2px 0 20px;}
+   .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:22px;}
+   .kpi{background:#fff;border-radius:12px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:5px solid #ccc;}
+   .kpi.red{border-left-color:#e74c3c}.kpi.orange{border-left-color:#e67e22}.kpi.info{border-left-color:#5b7a99}.kpi.green{border-left-color:#27ae60}
+   .kpi .label{font-size:11px;color:#6b7785;text-transform:uppercase;letter-spacing:.3px}
+   .kpi .value{font-size:22px;font-weight:700;margin:5px 0 2px}.kpi .value small{font-size:13px;font-weight:600}
+   .kpi .note{font-size:11.5px;color:#515b68}
+   .card{background:#fff;border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:20px}
+   .card h2{font-size:17px;margin-bottom:6px}
+   .legend{font-size:12px;color:#515b68;margin:2px 0 6px}.legend .sw{display:inline-block;width:22px;height:10px;border-radius:2px;vertical-align:middle;margin-right:5px}
+   .verdict{background:#fff4e5;border:1px solid #f0c89a;border-radius:12px;padding:16px 18px;font-size:14px;line-height:1.55;color:#6b4a1f}
+   .verdict b{color:#8a3b12}
+   .foot{margin-top:16px;font-size:11.5px;color:#8a94a0}
+   svg{width:100%;height:auto;display:block}
+   @media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}}
+  </style>
+  <script src="ks-lock.js"></script>
+</head>
+<body>
+<div class="topbar">
+  <div class="navbar">
+    <span class="brand">🩺 Медкарта</span>
+    <button class="burger" onclick="this.closest('.topbar').querySelector('.menu').classList.toggle('open')">☰ Разделы</button>
+  </div>
+  <nav class="menu"><div class="mwrap">
+    <a href="./">📊 Дашборд</a>
+    <div class="grp">Обследование</div>
+    <a href="istoriya">История болезни</a>
+    <a href="dokumenty">Документы (анализы)</a>
+    <a class="ks-lock" href="analizy">Анализы</a>
+    <a class="ks-lock" href="rasshifrovka">Расшифровка</a>
+    <div class="grp ks-lock">Лечение</div>
+    <a class="ks-lock" href="proverka">Проверка назначений</a>
+    <a class="ks-lock" href="nezavisimyy">Разбор лечения</a>
+    <a class="ks-lock" href="razbor-bad">Разбор БАД</a>
+    <a class="ks-lock" href="lekarstva">Лекарства</a>
+    <a class="ks-lock" href="grafik">График приёма</a>
+    <a class="ks-lock" href="rekomendacii">Рекомендации</a>
+    <div class="grp ks-lock">Записи</div>
+    <a class="ks-lock" href="dnevnik">Дневник</a>
+    <a class="ks-lock" href="voprosy">Вопросы врачам</a>
+    <a class="ks-entry" href="#" id="ks-login" onclick="ksLogin();return false;">🔒 Вход</a>
+    <a class="ks-entry" href="#" id="ks-logout" onclick="try{sessionStorage.removeItem('ks_pw');}catch(e){};location.href='./';return false;">🚪 Выйти</a>
+  </div></nav>
+</div>
+<main class="container">
+<script>
+(function(){
+  var seg=location.pathname.replace(/\/+$/,"").split("/").pop().replace(/\.html$/,"");
+  if(seg==="index")seg="";
+  document.querySelectorAll(".menu a").forEach(function(a){
+    var h=(a.getAttribute("href")||"").replace(/\.html$/,"").replace(/^\.?\//,"").replace(/\/+$/,"");
+    if(h&&h===seg)a.classList.add("active");
+  });
+  function reveal(on){var m=document.querySelector(".menu");if(m)m.classList.toggle("ksauth",!!on);}
+  function check(){
+    var pw=null;try{pw=sessionStorage.getItem("ks_pw");}catch(e){}
+    if(pw&&window.KS&&KS.validate){KS.validate(pw).then(reveal);}else reveal(false);
+  }
+  window.ksLogin=function(){
+    var pw=prompt("Пароль для доступа к разделам лечения:");
+    if(pw==null)return;
+    if(window.KS&&KS.validate){KS.validate(pw).then(function(ok){
+      if(ok){try{sessionStorage.setItem("ks_pw",pw);}catch(e){}reveal(true);}
+      else alert("Неверный пароль");
+    });}else alert("Модуль доступа не загрузился, обновите страницу.");
+  };
+  check();
+})();
+</script>
+<header id="title-block-header">
+<h1 class="title">Документы — бланки</h1>
+</header>
+<h1 id="документы--бланки-анализов">Документы — бланки анализов</h1>
+<p>Оригинальные бланки анализов и обследований по датам. Нажми
+«скачать», чтобы открыть/сохранить файл.</p>
+<h2 id="щитовидная-железа">Щитовидная железа</h2>
+<ul>
+<li>10.03.2025 — INVITRO (ТТГ, антитела) — <a
+href="документы/2025-03-10_INVITRO_щитовидка.jpeg">скачать</a></li>
+<li>09.02.2026 — INVITRO (ТТГ &gt;100, Т4, антитела) — <a
+href="документы/2026-02-09_INVITRO_щитовидка.jpeg">скачать</a></li>
+<li>25.03.2026 — INVITRO (ТТГ 0.671) — <a
+href="документы/2026-03-25_INVITRO_щитовидка.pdf">скачать</a></li>
+<li>20.04.2026 — A-Medical (ТТГ, Т4, кортизол) — <a
+href="документы/2026-04-20_A-Medical_щитовидка_кортизол.jpeg">скачать</a></li>
+<li>09.05.2026 — Хеликс (ТТГ, Т4, Анти-ТПО) — <a
+href="документы/2026-05-09_Хеликс_щитовидка.pdf">скачать</a></li>
+<li>09.05.2026 — Хеликс (Т3 свободный) — <a
+href="документы/2026-05-09_Хеликс_Т3-свободный.pdf">скачать</a></li>
+<li>15.05.2026 — Хеликс (ТТГ, Т4, антитела) — <a
+href="документы/2026-05-15_Хеликс_щитовидка.pdf">скачать</a></li>
+<li>19.05.2026 — Хеликс (ТТГ, Т4, Анти-ТПО) — <a
+href="документы/2026-05-19_Хеликс_щитовидка.pdf">скачать</a></li>
+<li>27.05.2026 — Хеликс (ТТГ, Т4, антитела) — <a
+href="документы/2026-05-27_Хеликс_щитовидка.pdf">скачать</a></li>
+<li>05.06.2026 — Хеликс (ТТГ, Т4, антитела) — <a
+href="документы/2026-06-05_Хеликс_щитовидка.pdf">скачать</a></li>
+<li>11.06.2026 — Хеликс (ТТГ, Т4, антитела) — <a
+href="документы/2026-06-11_Хеликс_щитовидка.pdf">скачать</a></li>
+</ul>
+<h2 id="кровь-и-биохимия">Кровь и биохимия</h2>
+<ul>
+<li>09.02.2026 — INVITRO (ферритин, белок, креатинин, мочевина,
+гомоцистеин) — <a
+href="документы/2026-02-09_INVITRO_биохимия_ферритин.jpeg">скачать</a></li>
+<li>11.02.2026 — MedLab (липиды, глюкоза, железо, гормоны) — <a
+href="документы/2026-02-11_MedLab_липиды_гормоны.jpeg">скачать</a></li>
+<li>09.05.2026 — A-Medical (паратгормон ПТГ 28.3) — <a
+href="документы/2026-05-09_Хеликс_паратгормон-ПТГ.pdf">скачать</a></li>
+<li>09.05.2026 — A-Medical (АКТГ 38.5) — <a
+href="документы/2026-05-09_Хеликс_АКТГ.pdf">скачать</a></li>
+<li>09.05.2026 — A-Medical (кальций ионизированный 1.24) — <a
+href="документы/2026-05-09_Хеликс_кальций-ионизир.pdf">скачать</a></li>
+<li>09.05.2026 — A-Medical (гликированный гемоглобин HbA1c 5.7%) — <a
+href="документы/2026-05-09_A-Medical_HbA1c.pdf">скачать</a></li>
+<li>31.05.2026 — A-Medical (биохимия печени, амилаза, ТТГ) — <a
+href="документы/2026-05-31_Хеликс_биохимия.pdf">скачать</a></li>
+<li>31.05.2026 — A-Medical (общий анализ крови) — <a
+href="документы/2026-05-31_Хеликс_ОАК.pdf">скачать</a></li>
+<li>13.06.2026 — A-Medical (фосфор 1.14, фолиевая B9 22.0) — <a
+href="документы/2026-06-13_A-Medical_фосфор-фолиевая.pdf">скачать</a></li>
+<li>13.06.2026 — A-Medical (инсулин 1.42 ↓, С-пептид 0.88 ↓) — <a
+href="документы/2026-06-13_A-Medical_инсулин-С-пептид.pdf">скачать</a></li>
+<li>13.06.2026 — A-Medical (билирубин 16.5, ЛПВП 1.27) — <a
+href="документы/2026-06-13_A-Medical_билирубин-ЛПВП.pdf">скачать</a></li>
+<li>13.06.2026 — A-Medical (фибриноген 1.70 ↓) — <a
+href="документы/2026-06-13_A-Medical_фибриноген.pdf">скачать</a></li>
+<li>13.06.2026 — A-Medical (лактат 0.90) — <a
+href="документы/2026-06-13_A-Medical_лактат.pdf">скачать</a></li>
+<li>13.06.2026 — A-Medical (цинк 847) — <a
+href="документы/2026-06-13_A-Medical_цинк.pdf">скачать</a></li>
+<li>13.06.2026 — A-Medical (ретикулоциты 0.9%) — <a
+href="документы/2026-06-13_A-Medical_ретикулоциты.pdf">скачать</a></li>
+<li>13.06.2026 — A-Medical (витамин B6 13.40) — <a
+href="документы/2026-06-13_A-Medical_витамин-B6.pdf">скачать</a></li>
+<li>16.06.2026 — A-Medical (инсулин 1.88, HOMA-IR 0.34) — <a
+href="документы/2026-06-16_A-Medical_инсулин-HOMA.pdf">скачать</a></li>
+<li>16.06.2026 — A-Medical (глюкоза плазмы 4.02) — <a
+href="документы/2026-06-16_A-Medical_глюкоза.pdf">скачать</a></li>
+<li>16.06.2026 — A-Medical (ЛГ 5.51) — <a
+href="документы/2026-06-16_A-Medical_ЛГ.pdf">скачать</a></li>
+<li>16.06.2026 — A-Medical (ФСГ 11.10 ↑, ГСПГ 182 ↑, IgG 13.12) — <a
+href="документы/2026-06-16_A-Medical_ФСГ-ГСПГ-IgG.pdf">скачать</a></li>
+<li>16.06.2026 — A-Medical (эозинофильный катионный белок 12.20) — <a
+href="документы/2026-06-16_A-Medical_эозинофильный-катионный-белок.pdf">скачать</a></li>
+<li>16.06.2026 — A-Medical (микроэлементы плазмы, ICP-MS) — <a
+href="документы/2026-06-16_A-Medical_микроэлементы-плазма.pdf">скачать</a></li>
+<li>16.06.2026 — A-Medical (общий анализ мочи с микроскопией) — <a
+href="документы/2026-06-16_A-Medical_ОАМ-моча.pdf">скачать</a></li>
+<li>29.06.2026 — A-Medical (общий анализ крови: гемоглобин 128,
+гематокрит 38, лейкоциты 3.28 ↓) — <a
+href="документы/2026-06-29_A-Medical_ОАК.pdf">скачать</a></li>
+<li>27.06–10.07.2026 — Непрерывный мониторинг глюкозы (CGM/AGP, 14
+дней): средняя 5.6, GMI 5.7%, время в норме 92% — <a
+href="документы/2026-07-10_AGP_CGM-глюкоза.pdf">скачать</a></li>
+<li>18.07.2026 — TURON MED, Самарканд (печёночный: АЛТ 56 ↑; глюкоза 3.5
+↓; ревмофакторы, СРБ, мочевая кислота — норма) — <a
+href="документы/2026-07-18_TURON_печень-биохимия.jpeg">скачать</a></li>
+<li>конец июля 2026 — TURON MED, Самарканд (щитовидка: ТТГ 20.71 ↑,
+Т4/Т3 низкие; печёночный: АЛТ 178 ↑, АСТ 72 ↑; билирубин норма) — <a
+href="документы/2026-07-later_TURON_щитовидка-печень.jpeg">скачать</a></li>
+</ul>
+<h2 id="узи-и-мрт">УЗИ и МРТ</h2>
+<ul>
+<li>11.02.2026 — УЗИ щитовидной железы (снимки) — <a
+href="документы/2026-02-11_УЗИ_щитовидки.jpeg">скачать</a></li>
+<li>11.02.2026 — УЗИ щитовидной железы (заключение) — <a
+href="документы/2026-02-11_УЗИ_щитовидки_заключение.jpeg">скачать</a></li>
+<li>04.05.2026 — УЗИ органов брюшной полости (камень 24 мм) — <a
+href="документы/2026-05-04_УЗИ_ОБП.jpeg">скачать</a></li>
+<li>04.07.2026 — УЗИ брюшной полости (камень 2.7 см, застой желчи,
+расширен тонкий кишечник) — <a
+href="документы/2026-07-04_УЗИ_ОБП.pdf">скачать</a></li>
+<li>04.07.2026 — УЗИ мочевого пузыря (остаточная моча 45 мл) — <a
+href="документы/2026-07-04_УЗИ_мочевой-пузырь.pdf">скачать</a></li>
+<li>04.07.2026 — ТВ УЗИ малого таза (миома матки + эндометриоз) — <a
+href="документы/2026-07-04_УЗИ_малый-таз.pdf">скачать</a></li>
+<li>06.07.2026 — УЗИ ЖКТ, Interna Clinic (патологии не выявлено) — <a
+href="документы/2026-07-06_УЗИ_ЖКТ.pdf">скачать</a></li>
+<li>14.07.2026 — МРТ брюшной полости («МРТ-Лидер»). Заключение:
+конкремент желчного пузыря 21 мм + застой желчи; минимальные диффузные
+изменения печени и поджелудочной; очагов и опухолей нет — <a
+href="документы/2026-07-14_МРТ-ОБП_заключение.pdf">заключение</a> · <a
+href="документы/2026-07-14_МРТ-ОБП_МРХПГ_DICOM.zip">DICOM-архив ~28
+МБ</a></li>
+</ul>
+<h2 id="жкт">ЖКТ</h2>
+<ul>
+<li>03.06.2026 — анализ кала на дисбактериоз — <a
+href="документы/2026-06-03_кал_дисбактериоз.pdf">скачать</a></li>
+<li>07.06.2026 — ВЭГДС / гастроскопия (эзофагит, гастрит) — <a
+href="документы/2026-06-07_ВЭГДС_гастроскопия.jpeg">скачать</a></li>
+</ul>
+<h2 id="сердце">Сердце</h2>
+<ul>
+<li>31.03.2026 — ЭхоКГ (эхокардиография): сердце в норме — полости не
+увеличены, клапаны интактны, ФВ 60% по Симпсону, лёгочной гипертензии
+нет — <a href="документы/2026-03-31_ЭхоКГ.pdf">скачать</a></li>
+</ul>
+<hr />
+<p><em>Скачиваются оригинальные бланки лабораторий и
+заключения.</em></p>
+</main>
+</body>
+</html>
