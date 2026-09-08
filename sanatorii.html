@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Санатории</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+   *{box-sizing:border-box;}
+   html,body{margin:0;}
+   body{font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;background:#f4f6f8;color:#1f2733;line-height:1.55;max-width:none;padding:0;}
+   .topbar{background:#1f2733;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,.15);}
+   .navbar{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 14px;}
+   .brand{color:#fff;font-size:14.5px;font-weight:600;padding:12px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+   .burger{background:none;border:1px solid #4a5765;color:#cfe3ff;font-size:14px;padding:7px 13px;border-radius:7px;cursor:pointer;flex-shrink:0;margin-left:12px;}
+   .menu{display:none;}
+   .menu.open{display:block;position:absolute;left:0;right:0;background:#1f2733;border-top:1px solid #33404f;box-shadow:0 8px 18px rgba(0,0,0,.28);}
+   .menu .mwrap{max-width:900px;margin:0 auto;}
+   .menu a{display:block;color:#cfe3ff;text-decoration:none;font-size:14px;padding:11px 18px;border-bottom:1px solid #2a3645;}
+   .menu a:hover{background:#2c3845;color:#fff;}
+   .menu a.active{color:#fff;font-weight:700;border-left:3px solid #4da3ff;}
+   .menu .grp{color:#8a98a8;font-size:11px;text-transform:uppercase;padding:10px 18px 3px;letter-spacing:.4px;}
+   .menu a.ks-lock,.menu .grp.ks-lock{display:none;}
+   .menu.ksauth a.ks-lock{display:block;}
+   .menu.ksauth .grp.ks-lock{display:block;}
+   #ks-login{color:#ffd479;font-weight:600;}
+   .menu.ksauth #ks-login{display:none;}
+   #ks-logout{display:none;color:#ffb3b3;font-weight:600;}
+   .menu.ksauth #ks-logout{display:block;}
+   @media(min-width:780px){
+     .burger{display:none;}
+     .menu{display:block!important;position:static;box-shadow:none;border-top:none;}
+     .menu .mwrap{display:flex;flex-wrap:wrap;align-items:center;}
+     .menu a{border:none;border-bottom:3px solid transparent;padding:12px 10px;font-size:13px;}
+     .menu a.active{border-left:none;border-bottom-color:#4da3ff;}
+     .menu .grp{display:none;}
+     .menu.ksauth .grp.ks-lock{display:none;}
+   }
+   .container{max-width:900px;margin:0 auto;padding:22px 18px 70px;}
+   h1{font-size:24px;border-bottom:2px solid #2b2b2b;padding-bottom:6px;margin:6px 0 14px;}
+   h2{font-size:17px;margin-top:1.4em;border-bottom:1px solid #ddd;padding-bottom:3px;}
+   h3{font-size:14.5px;margin-top:1.1em;}
+   table{border-collapse:collapse;width:100%;margin:.7em 0;font-size:13.5px;background:#fff;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+   th,td{border:1px solid #cfd6dd;padding:6px 9px;text-align:left;vertical-align:top;}
+   th{background:#eef0f2;}
+   code{background:#eceff2;padding:1px 4px;border-radius:3px;}
+   blockquote{border-left:4px solid #ccc;margin:.7em 0;padding:6px 14px;color:#555;background:#fff;}
+   ul,ol{padding-left:1.4em;}
+   a{color:#0a7d3c;}
+   hr{border:none;border-top:1px solid #ddd;margin:1.2em 0;}
+   .sub{color:#6b7785;font-size:14px;margin:2px 0 20px;}
+   .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:22px;}
+   .kpi{background:#fff;border-radius:12px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:5px solid #ccc;}
+   .kpi.red{border-left-color:#e74c3c}.kpi.orange{border-left-color:#e67e22}.kpi.info{border-left-color:#5b7a99}.kpi.green{border-left-color:#27ae60}
+   .kpi .label{font-size:11px;color:#6b7785;text-transform:uppercase;letter-spacing:.3px}
+   .kpi .value{font-size:22px;font-weight:700;margin:5px 0 2px}.kpi .value small{font-size:13px;font-weight:600}
+   .kpi .note{font-size:11.5px;color:#515b68}
+   .card{background:#fff;border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:20px}
+   .card h2{font-size:17px;margin-bottom:6px}
+   .legend{font-size:12px;color:#515b68;margin:2px 0 6px}.legend .sw{display:inline-block;width:22px;height:10px;border-radius:2px;vertical-align:middle;margin-right:5px}
+   .verdict{background:#fff4e5;border:1px solid #f0c89a;border-radius:12px;padding:16px 18px;font-size:14px;line-height:1.55;color:#6b4a1f}
+   .verdict b{color:#8a3b12}
+   .foot{margin-top:16px;font-size:11.5px;color:#8a94a0}
+   svg{width:100%;height:auto;display:block}
+   @media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}}
+  </style>
+  <script src="ks-lock.js"></script>
+</head>
+<body>
+<div class="topbar">
+  <div class="navbar">
+    <span class="brand">🩺 Медкарта</span>
+    <button class="burger" onclick="this.closest('.topbar').querySelector('.menu').classList.toggle('open')">☰ Разделы</button>
+  </div>
+  <nav class="menu"><div class="mwrap">
+    <a href="./">📊 Дашборд</a>
+    <div class="grp">Обследование</div>
+    <a href="istoriya">История болезни</a>
+    <a href="dokumenty">Документы (анализы)</a>
+    <a href="sanatorii">🏔 Санатории</a>
+    <a class="ks-lock" href="analizy">Анализы</a>
+    <a class="ks-lock" href="rasshifrovka">Расшифровка</a>
+    <div class="grp ks-lock">Лечение</div>
+    <a class="ks-lock" href="proverka">Проверка назначений</a>
+    <a class="ks-lock" href="nezavisimyy">Разбор лечения</a>
+    <a class="ks-lock" href="razbor-bad">Разбор БАД</a>
+    <a class="ks-lock" href="lekarstva">Лекарства</a>
+    <a class="ks-lock" href="grafik">График приёма</a>
+    <a class="ks-lock" href="rekomendacii">Рекомендации</a>
+    <div class="grp ks-lock">Записи</div>
+    <a class="ks-lock" href="dnevnik">Дневник</a>
+    <a class="ks-lock" href="voprosy">Вопросы врачам</a>
+    <a class="ks-entry" href="#" id="ks-login" onclick="ksLogin();return false;">🔒 Вход</a>
+    <a class="ks-entry" href="#" id="ks-logout" onclick="try{sessionStorage.removeItem('ks_pw');}catch(e){};location.href='./';return false;">🚪 Выйти</a>
+  </div></nav>
+</div>
+<main class="container">
+<script>
+(function(){
+  var seg=location.pathname.replace(/\/+$/,"").split("/").pop().replace(/\.html$/,"");
+  if(seg==="index")seg="";
+  document.querySelectorAll(".menu a").forEach(function(a){
+    var h=(a.getAttribute("href")||"").replace(/\.html$/,"").replace(/^\.?\//,"").replace(/\/+$/,"");
+    if(h&&h===seg)a.classList.add("active");
+  });
+  function reveal(on){var m=document.querySelector(".menu");if(m)m.classList.toggle("ksauth",!!on);}
+  function check(){
+    var pw=null;try{pw=sessionStorage.getItem("ks_pw");}catch(e){}
+    if(pw&&window.KS&&KS.validate){KS.validate(pw).then(reveal);}else reveal(false);
+  }
+  window.ksLogin=function(){
+    var pw=prompt("Пароль для доступа к разделам лечения:");
+    if(pw==null)return;
+    if(window.KS&&KS.validate){KS.validate(pw).then(function(ok){
+      if(ok){try{sessionStorage.setItem("ks_pw",pw);}catch(e){}reveal(true);}
+      else alert("Неверный пароль");
+    });}else alert("Модуль доступа не загрузился, обновите страницу.");
+  };
+  check();
+})();
+</script>
+<header id="title-block-header">
+<h1 class="title">Санатории</h1>
+</header>
+<h1 id="санатории--сравнение-казахстан-и-узбекистан">Санатории —
+сравнение (Казахстан и Узбекистан)</h1>
+<p>Подборка сильнейших санаториев Казахстана и Узбекистана (Ташкент) с
+профилем лечения, процедурами и ориентировочной стоимостью. Раздел
+справочный — открыт без пароля.</p>
+<blockquote>
+<p><strong>Важно.</strong> Цены индикативные, собраны из открытых
+источников (официальные сайты санаториев и агрегаторы) на 8 сентября
+2026. Итоговая стоимость зависит от сезона, категории номера, питания и
+длительности путёвки — уточняйте по телефону или на сайте. Санаторий и
+конкретные процедуры выбирать только с лечащим врачом.</p>
+</blockquote>
+<h2 id="сравнительная-матрица">Сравнительная матрица</h2>
+<table>
+<thead>
+<tr>
+<th>Санаторий</th>
+<th>Регион</th>
+<th>Уникальная особенность (природа, воды, источники)</th>
+<th>Профиль (что лечат)</th>
+<th>Ключевые процедуры</th>
+<th>Цена, индикативно</th>
+<th>Контакт</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://almatyresort.kz">Almaty Resort («Алматы»)</a></td>
+<td>Алматы, ул. Аскарова 42</td>
+<td>Предгорье Заилийского Алатау; единственный в списке с 4 теннисными
+кортами; СПА (кедровая бочка, спа-капсула)</td>
+<td>Опорно-двигательный аппарат, сердечно-сосудистая система, органы
+дыхания, реабилитация</td>
+<td>Бальнеолечение, СПА (бассейн, сауны, кедровая бочка, джакузи),
+<strong>4 теннисных корта</strong></td>
+<td>Стандарт 1-мест. 55 000 ₸/сут, 2-мест. 78 000 ₸/сут</td>
+<td>+7 727 300 34 00</td>
+</tr>
+<tr>
+<td><a href="https://kazakhstansan.kz">Санаторий «Казахстан»</a></td>
+<td>Алматы, пр. Достык 308 (Заилийский Алатау, 1073 м)</td>
+<td>У подножья Заилийского Алатау на высоте 1073 м; собственный парк,
+горный воздух</td>
+<td>Климато- и бальнеолечение, общая реабилитация</td>
+<td>Бассейн, физиотерапия, бальнеопроцедуры</td>
+<td>от 16 000 до 33 000 ₸/сут</td>
+<td>+7 727 264 64 54</td>
+</tr>
+<tr>
+<td><a href="https://akkain.com">Санаторий «Ак-Кайын»</a></td>
+<td>Алматы, Каменское плато (1450 м)</td>
+<td>Самая большая высота среди алматинских — 1450 м; хвойное горное
+ущелье Каменского плато</td>
+<td>Климатолечение: органы дыхания, нервная система, сердце</td>
+<td>Климатотерапия, физиопроцедуры, бассейн; путёвка 7–12 дней,
+5-разовое питание</td>
+<td>~15 000–25 000 ₸/сут (с лечением и питанием)</td>
+<td>+7 727 395 76 29</td>
+</tr>
+<tr>
+<td><a href="https://saryagashkurort.kz">Курорт Сарыагаш</a></td>
+<td>Туркестанская обл.</td>
+<td>Знаменитая термальная кремнистая минеральная вода «Сарыагаш»
+(питьевая)</td>
+<td>Минеральная вода: ЖКТ, печень, почки, обмен веществ</td>
+<td>Питьевые минводы, бассейны, физиотерапия (десятки санаториев)</td>
+<td>Стандарт от 12 000–24 000 ₸/сут/чел; люкс ~38 800 ₸</td>
+<td>через агрегаторы</td>
+</tr>
+<tr>
+<td><a href="https://rahmany.kz">Рахмановские ключи</a></td>
+<td>ВКО, Алтай</td>
+<td>Радоновые горячие источники у высокогорного озера Рахмановское;
+Катон-Карагайский нацпарк</td>
+<td>Радоновые термальные источники: опорно-двигательный аппарат, нервы,
+кожа</td>
+<td>Радоновые ванны, термальные источники</td>
+<td>Путёвка эконом от 70 000–84 000 ₸/чел; туры от 99 000 ₸</td>
+<td>rahmany.kz · ⚠ уточнить статус работы (сезонность/закрытие)</td>
+</tr>
+<tr>
+<td><a href="https://pantolechenie.kz">Катон-Карагай
+(пантолечебницы)</a></td>
+<td>ВКО</td>
+<td>Пантолечение маралами (пантовые ванны и отвар); заповедный Алтай,
+оленьи парки</td>
+<td>Пантолечение (маралы): иммунитет, нервы, опорно-двигательный
+аппарат</td>
+<td>Пантовые ванны (8 500 ₸), пантовое укутывание + ингаляция (8 000 ₸);
+курсы 5/7/10 дней</td>
+<td>процедуры от 8 000 ₸; путёвка — уточнить</td>
+<td>pantolechenie.kz</td>
+</tr>
+<tr>
+<td><a href="https://moiyldy.kz">Санаторий «Мойылды»</a></td>
+<td>Павлодарская обл. (оз. Мойылды)</td>
+<td>Лечебное солёное озеро Мойылды: сульфидная иловая грязь и рапа</td>
+<td>Грязе- и бальнеолечение: опорно-двигательный аппарат, гинекология,
+нервы</td>
+<td>Грязелечение, бальнеованны, физиотерапия; путёвки 10/13 дней</td>
+<td>новый прайс с 2026 — уточнить</td>
+<td>+7 7182 35‑65‑33</td>
+</tr>
+<tr>
+<td><a href="https://zharkentarasan.kz">МОК «Жаркент-Арасан»</a></td>
+<td>Жетысу обл. (ущелье р. Буракожыр)</td>
+<td>Собственный радоновый источник в горном ущелье реки Буракожыр</td>
+<td>Собственный радоновый источник, бальнео + грязелечение, гинекология,
+ЖКТ</td>
+<td>Радоновые и бальнеованны, грязи, физиотерапия, ЛФК, массаж,
+парафин</td>
+<td>от 9 000–14 300 ₸/сут/чел</td>
+<td>+7 777 263 33 43</td>
+</tr>
+<tr>
+<td><a href="https://borovoe.kz">Курорт Боровое / Бурабай</a></td>
+<td>Акмолинская обл.</td>
+<td>«Казахстанская Швейцария»: сосновые леса, озёра и скалы (Окжетпес,
+Жумбактас)</td>
+<td>Климатический курорт (лес + озёра): нервная система, органы дыхания,
+оздоровление</td>
+<td>Климатотерапия, бассейны, физиопроцедуры (много санаториев)</td>
+<td>2-мест. стандарт от ~16 500 ₸/сут/чел (2022, индикативно)</td>
+<td>borovoe.kz</td>
+</tr>
+<tr>
+<td><a href="https://mankent.com">Санаторий «Манкент»</a></td>
+<td>Туркестанская обл.</td>
+<td>Минеральная вода среди фруктовых садов — яблоневые и урюковые рощи,
+предгорье</td>
+<td>Минеральная вода и грязи: ЖКТ, опорно-двигательный аппарат</td>
+<td>Минводы, грязи, бальнео, физиотерапия; 4-разовое питание</td>
+<td>1-мест. от 32 000–33 000 ₸ (питание + лечение + проживание, с
+16.03.2026)</td>
+<td>mankent.com</td>
+</tr>
+<tr>
+<td><a href="https://tashthermal.uz">Санаторий «Таштермал»</a></td>
+<td>Ташкент, Узбекистан (545 м, парк 10 га)</td>
+<td>Парк 10 га с декоративными деревьями и лекарственными травами;
+собственные минеральная вода и лечебная грязь</td>
+<td>Бальнеогрязевой: эндокринология (зоб, СД I–II), ЖКТ (гастрит, хр.
+холецистит и панкреатит), кардиология, неврология, гинекология,
+опорно-двигательный аппарат, кожа</td>
+<td>Грязелечение, бальнеованны, минводы, физиотерапия; шведский стол,
+диетстолы 9/10</td>
+<td>прайс на сайте</td>
+<td>tashthermal.uz</td>
+</tr>
+<tr>
+<td><a href="https://tmss.uz/ru">Санаторий «Ташкентские Минеральные
+Воды» (TMSS)</a></td>
+<td>Ташкент, Узбекистан (Куксорой)</td>
+<td>Собственный минеральный источник на стыке ташкентского оазиса и
+предпустынной зоны (климатические контрасты); крытый бассейн с
+минводой</td>
+<td>Минеральные воды, климатолечение; лечебные программы медцентра</td>
+<td>Минеральный источник, крытый бассейн, физиотерапия, лечебные
+программы</td>
+<td><a href="https://tmss.uz/ru/medical_center/price-list">прайс-лист на
+сайте</a></td>
+<td>tmss.uz</td>
+</tr>
+</tbody>
+</table>
+<h2 id="что-учесть-при-выборе-для-кати">Что учесть при выборе для
+Кати</h2>
+<p>Это не медицинская рекомендация, а ориентир — окончательно решает
+лечащий врач.</p>
+<ul>
+<li><strong>Ближе всего к дому.</strong> Almaty Resort — на той же улице
+Аскарова, что и ЖК Apple Town; горный климат, реабилитация, есть
+теннисные корты. Самый дорогой из списка.</li>
+<li><strong>Мягкий климат, покой, дыхание и нервы.</strong> Ак-Кайын,
+санаторий «Казахстан» (Алматы), Боровое — щадящий профиль, без
+агрессивных процедур.</li>
+<li><strong>Минеральные воды (ЖКТ/печень).</strong> Сарыагаш, Манкент.
+Но при камне в желчном (ЖКБ) желчегонные минводы, тепловые и грязевые
+процедуры могут быть противопоказаны — обязательно согласовать с
+врачом.</li>
+<li><strong>В Узбекистане (Катя сейчас там).</strong> «Таштермал» —
+профиль включает эндокринологию (зоб) и ЖКТ (гастрит, хронический
+холецистит и панкреатит); «Ташкентские Минеральные Воды» — минводы и
+климатолечение. Оба бальнеогрязевые: при камне в желчном грязи, тепло и
+желчегонные — только с допуском врача.</li>
+<li><strong>Радон и грязи</strong> (Жаркент-Арасан, Мойылды,
+Рахмановские ключи) — сильные процедуры; при её печени, ЖКБ и щитовидке
+нужен отдельный допуск врача.</li>
+<li><strong>По щитовидке (Хашимото)</strong> санатории профильно не
+лечат — важнее общий режим, питание и отдых; тепловые и грязевые
+нагрузки применять с осторожностью.</li>
+</ul>
+<h2 id="источники-и-дата">Источники и дата</h2>
+<p>Данные собраны 8 сентября 2026 из открытых источников: официальные
+сайты санаториев (almatyresort.kz, kazakhstansan.kz, akkain.com,
+saryagashkurort.kz, rahmany.kz, pantolechenie.kz, moiyldy.kz,
+zharkentarasan.kz, mankent.com, borovoe.kz, tashthermal.uz, tmss.uz) и
+агрегаторы (103.kz, gotur.kz, real-kz.com). Цены проверяйте перед
+бронированием.</p>
+</main>
+</body>
+</html>
